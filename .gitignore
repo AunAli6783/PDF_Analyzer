@@ -1,0 +1,22 @@
+# Ignore a specific file
+secrets.env
+
+# Ignore all .log files anywhere
+*.log
+
+# Ignore a folder (and contents)
+dist/
+
+# Ignore a folder anywhere in the repo
+**/node_modules/
+
+# Ignore OS/editor files
+.DS_Store
+.vscode/
+
+# ...add more patterns as needed...
+.env
+*.tmp
+AUN_ALI_RESUME.pdf
+F25-177_Plag(1).pdf
+uploads/

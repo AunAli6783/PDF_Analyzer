@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>PDF Q&A - Upload</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <div class="bg"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">PQ</div>
+        <div>
+          <div class="title">Upload</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <form action="/" method="post" enctype="multipart/form-data" class="stack">
+          <label class="label" for="pdf">Upload PDF</label>
+          <input id="pdf" type="file" name="pdf" accept="application/pdf" class="input" />
+
+          {% if error %}
+            <div class="alert alert-error">{{ error }}</div>
+          {% endif %}
+
+          <div class="row">
+            <button class="btn btn-primary" type="submit">Upload</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

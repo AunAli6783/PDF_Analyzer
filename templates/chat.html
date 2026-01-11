@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>PDF Analyzer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <div class="bg"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">PQ</div>
+        <div>
+          <div class="title">Chat</div>
+          <div class="subtitle">Current file: <span class="pill">{{ pdf_name }}</span></div>
+        </div>
+      </div>
+      <nav class="actions">
+        <a class="btn btn-ghost" href="/">Upload new</a>
+        <a class="btn btn-ghost" href="/reset">Reset</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <form action="/ask" method="post" class="stack">
+          <label class="label" for="question">Question</label>
+          <input id="question" name="question" class="input" value="{{ question or '' }}" placeholder="Ask something about the PDF..." />
+          <div class="row">
+            <button class="btn btn-primary" type="submit">Ask</button>
+          </div>
+        </form>
+
+        {% if error %}
+          <div class="alert alert-error">{{ error }}</div>
+        {% endif %}
+
+        {% if answer %}
+          <div class="divider"></div>
+          <h3>Answer</h3>
+          <pre class="answer">{{ answer }}</pre>
+        {% endif %}
+      </section>
+    </main>
+  </body>
+</html>

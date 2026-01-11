@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>PDF Q&A</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <div class="bg"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">PQ</div>
+        <div>
+          <div class="title">PDF Q&amp;A</div>
+          <div class="subtitle">Upload a PDF and ask questions using Groq</div>
+        </div>
+      </div>
+      <nav class="actions">
+        <a class="btn btn-ghost" href="/reset">Reset</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Upload</h2>
+        <p class="muted">Choose a PDF file. After upload, you’ll be taken to the chat page.</p>
+
+        <form action="/upload" method="post" enctype="multipart/form-data" class="row">
+          <input class="file" type="file" name="pdf" accept="application/pdf" required />
+          <button class="btn btn-primary" type="submit">Upload PDF</button>
+        </form>
+
+        {% if error %}
+          <div class="alert alert-error">{{ error }}</div>
+        {% endif %}
+
+        <div class="hint">
+          Needs <code>GROQ_API_KEY</code> in your environment or <code>.env</code>.
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
