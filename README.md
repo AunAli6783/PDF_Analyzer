@@ -31,7 +31,6 @@ It extracts text from the PDF, chunks it, retrieves the most relevant chunks, an
 - A Groq API key
 
 Install dependencies:
-```bash
 pip install -r requirements.txt
 
 Notes:
